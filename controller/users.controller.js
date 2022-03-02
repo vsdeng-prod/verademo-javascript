@@ -20,15 +20,24 @@ exports.getUsers = (req, res, next) => {
 exports.userLogin = (req, res, next) => {
   console.log('POST /users/login')
   console.log('Request Data: '+JSON.stringify(req.body))
+  //check user
   if ( req.user != req.body.username){
     console.log('Requesting password for a different user, request forbidden')
     return res.status(403).send({ success: 0, data: "Forbidden" });
   }
+  //check required parameters
+  if ( typeof req.body.username == 'undefined' || typeof req.body.password == 'undefined' ){
+    return res.status(400).send({
+      success: 1,
+      data: "One or more required parameters missing",
+    });
+  }
+
   const data = {
-    authHeader: req.headers.authorization,
     username: req.body.username,
     password: req.body.password,
   };
+
   usersService.userLogin(data, (error, results) => {
     if (error) {
       console.log(error);

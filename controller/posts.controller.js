@@ -19,6 +19,14 @@ exports.getAllBlabs = (req, res, next) => {
 exports.getBlabComments = (req, res, next) => {
   console.log('POST /posts/getBlabComments')
   console.log('Request Data: '+JSON.stringify(req.body))
+
+  //check required parameters
+  if ( typeof req.body.blabId == 'undefined' ){
+    return res.status(400).send({
+      success: 1,
+      data: "One or more required parameters missing",
+    });
+  }
   const data = {
     blabId: req.body.blabId,
   };
@@ -38,6 +46,15 @@ exports.getBlabComments = (req, res, next) => {
 exports.addBlab = (req, res, next) => {
   console.log('POST /posts/addBlab')
   console.log('Request Data: '+JSON.stringify(req.body))
+
+  //check required parameters
+  if ( typeof req.body.blab == 'undefined' ){
+    return res.status(400).send({
+      success: 1,
+      data: "One or more required parameters missing",
+    });
+  }
+
   const data = {
     user: req.user,
     blab: req.body.blab,
@@ -59,6 +76,15 @@ exports.addBlab = (req, res, next) => {
 exports.addBlabComment = (req, res, next) => {
   console.log('POST /posts/addBlabComment')
   console.log('Request Data: '+JSON.stringify(req.body))
+
+  //check required parameters
+  if ( typeof req.body.blabId == 'undefined' || typeof req.body.comment == 'undefined' ){
+    return res.status(400).send({
+      success: 1,
+      data: "One or more required parameters missing",
+    });
+  }
+
   const data = {
     user: req.user,
     blabId: req.body.blabId,
@@ -81,10 +107,20 @@ exports.deleteBlab = (req, res, next) => {
   console.log('DELETE /posts/deleteBlab')
   console.log('Request Data: '+JSON.stringify(req.body))
   console.log('User: '+req.user)
+  //check user
   if ( req.user != 'admin'){
     console.log('Not admin user, request forbidden')
     return res.status(403).send({ success: 0, data: "Forbidden" });
   }
+
+  //check required parameters
+  if ( typeof req.body.blabId == 'undefined' ){
+    return res.status(400).send({
+      success: 1,
+      data: "One or more required parameters missing",
+    });
+  }
+
   const data = {
     blabId: req.body.blabId,
   };
