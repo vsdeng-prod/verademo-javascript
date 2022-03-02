@@ -1,0 +1,327 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Verdemo-API",
+      "description": "API documentation",
+      "contact": {
+        "name": "Developer"
+      },
+      "servers": [
+        "http://localhost:8000/"
+      ]
+    },
+    "basePath": "http://localhost:8000/",
+    "paths": {
+      "/admin/runCommand": {
+        "post": {
+          "description": "Used to run a command",
+          "tags": [
+            "admin"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Command",
+              "description": "Command",
+              "schema": {
+                "type": "object",
+                "required": [
+                  "command"
+                ],
+                "properties": {
+                  "host": {
+                    "type": "string",
+                    "example": "ls -la"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Resource added successfully"
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/admin/getFile": {
+        "post": {
+          "description": "Get file content",
+          "tags": [
+            "admin"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Get file",
+              "description": "flename",
+              "schema": {
+                "type": "object",
+                "required": [
+                  "filename"
+                ],
+                "properties": {
+                  "filename": {
+                    "type": "string",
+                    "example": "../index.js"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Resource added successfully"
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/posts/addBlab": {
+        "post": {
+          "description": "Used to add post",
+          "tags": [
+            "blabs"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Post Blab",
+              "description": "Post Blab",
+              "schema": {
+                "type": "object",
+                "required": [
+                  "blab"
+                ],
+                "properties": {
+                  "blab": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1000,
+                    "example": "This is sample Blab"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Resource added successfully"
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/posts/getAllBlabs": {
+        "get": {
+          "description": "Get all blbs",
+          "tags": [
+            "blabs"
+          ],
+          "responses": {
+            "200": {
+              "description": "Resource added successfully"
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/posts/addBlabComment": {
+        "post": {
+          "description": "Used to add Blab comment",
+          "tags": [
+            "blabs"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Comment",
+              "description": "Blab Comment",
+              "schema": {
+                "type": "object",
+                "required": [
+                  "blabId",
+                  "comment"
+                ],
+                "properties": {
+                  "blabId": {
+                    "type": "integer",
+                    "example": 145
+                  },
+                  "comment": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1000,
+                    "example": "This is sample comment"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Resource added successfully"
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/posts/getBlabComments": {
+        "post": {
+          "description": "Used to get all comments of given blab id",
+          "tags": [
+            "blabs"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "blabid",
+              "description": "Blab ID",
+              "schema": {
+                "type": "object",
+                "required": [
+                  "blabid"
+                ],
+                "properties": {
+                  "blabid": {
+                    "type": "integer",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Resource added successfully"
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/posts/deleteBlab": {
+        "delete": {
+          "description": "Used to delete Blab",
+          "tags": [
+            "blabs"
+          ],
+          "parameters": [
+            {
+              "in": "query",
+              "name": "blabId",
+              "type": "integer",
+              "description": "Blab id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Resource added successfully"
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/users/getUsers": {
+        "get": {
+          "description": "Get all users",
+          "tags": [
+            "users"
+          ],
+          "parameters": "none",
+          "responses": {
+            "200": {
+              "description": "Resource added successfully"
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/users/userLogin": {
+        "post": {
+          "description": "Get all users",
+          "tags": [
+            "users"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "User Login",
+              "description": "User Login",
+              "schema": {
+                "type": "object",
+                "required": [
+                  "username",
+                  "pasword"
+                ],
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "myUsername"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "myPassword"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Resource added successfully"
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      }
+    },
+    "components": {},
+    "tags": []
+  }

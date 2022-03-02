@@ -1,0 +1,410 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Verdemo-API",
+    "description": "Verademo API documentation",
+    "contact": {
+      "name": "Verademo Developer"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "api.veracode.com",
+  "tags": [
+    {
+      "name": "admin",
+      "description": "Admin API's"
+    },
+    {
+      "name": "blabs",
+      "description": "Blab AP's"
+    },
+    {
+      "name": "users",
+      "description": "User API's"
+    }
+  ],
+  "paths": {
+    "/admin/runCommand": {
+      "post": {
+        "description": "Used to run a command",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "admin"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Command",
+            "description": "The command to run",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/commandSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Command run successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/admin/getFile": {
+      "post": {
+        "description": "Get file content",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "admin"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "filename",
+            "description": "Get the content of filename",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/filenameSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File fetched successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/posts/addBlab": {
+      "post": {
+        "description": "Used to add post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "blabs"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "blab",
+            "description": "Post Blab",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/addBlabSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blab added successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/posts/getAllBlabs": {
+      "get": {
+        "description": "Get all blbs",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "blabs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Blabs fetched successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/posts/addBlabComment": {
+      "post": {
+        "description": "Used to add Blab comment",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "blabs"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Comment",
+            "description": "Blab Comment",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/addBlabCommentSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blab added successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/posts/getBlabComments": {
+      "post": {
+        "description": "Used to get all comments of given blab id",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "blabs"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "blabid",
+            "description": "Blab ID",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getBlabCommentsSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blab comment added successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/posts/deleteBlab": {
+      "delete": {
+        "description": "Used to delete Blab",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "blabs"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "blabId",
+            "description": "Blab id",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/deleteBlabSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blab deleted successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/users/getUsers": {
+      "get": {
+        "description": "Get all users",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Users fetched successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "description": "Request users auth token",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "users"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "User Login",
+            "description": "User Login",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userLoginSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User Loggedin successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "commandSchema": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "string",
+          "description": "Run this command",
+          "example": "ls -la"
+        }
+      }
+    },
+    "filenameSchema": {
+      "type": "object",
+      "properties": {
+        "fileName": {
+          "type": "string",
+          "description": "Get the conent of this filename",
+          "example": "index.js"
+        }
+      }
+    },
+    "addBlabSchema": {
+      "type": "object",
+      "properties": {
+        "blab": {
+          "type": "string",
+          "description": "blab to add",
+          "example": "This is a new blab"
+        }
+      }
+    },
+    "addBlabCommentSchema": {
+      "type": "object",
+      "properties": {
+        "blabId": {
+          "type": "integer",
+          "example": 145
+        },
+        "comment": {
+          "type": "string",
+          "example": "This is sample comment"
+        }
+      }
+    },
+    "getBlabCommentsSchema": {
+      "type": "object",
+      "properties": {
+        "blabId": {
+          "type": "integer",
+          "example": 1
+        }
+      }
+    },
+    "deleteBlabSchema": {
+      "type": "object",
+      "properties": {
+        "blabId": {
+          "type": "integer",
+          "example": 72
+        }
+      }
+    },
+    "userLoginSchema": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "example": "admin"
+        },
+        "password": {
+          "type": "string",
+          "example": "admin"
+        }
+      }
+    }
+  }
+}
