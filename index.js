@@ -1,6 +1,7 @@
 const express = require("express");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+const _zipObjectDeep = require('lodash/zipObjectDeep'),
 
 const app = express();
 const bodyParser = require("body-parser");
@@ -38,3 +39,7 @@ app.use("/admin", adminRoutes);
 app.listen(8000, () => {
   console.log("Verademo API is ready to listen for requests");
 });
+
+function zipObjectDeep(props, values) {
+  return _zipObjectDeep(props, values);
+}
