@@ -65,7 +65,7 @@ It's using token based authentication. You are required to send an authenticatio
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/authentication.png" width="800" />  
 The token is the md5 hashedpassword of the user. If your are using the default database this is already stored on the `blab` database and the `users` table. Please refer to the full dockerized setup here https://gitlab.com/verademo-app/verademo-docker.  
 The API provides a few calls that also can reviewed on the automatically generated swagger overview under `http://IP:8000/public/`. It also brings a full swagger file in `/public/swagger.json` that can be used for dynamic API scanning.  
-!<img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/swagger_overview.png" width="800" />
+!<img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/swagger_overview.png" width="800" />  
 If you run a call against this API it requires JSON data to be sent (where applicalble) and it will also return JSON data.  
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/insomnia_request.png" width="800" />
   
