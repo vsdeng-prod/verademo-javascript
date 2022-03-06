@@ -72,4 +72,4 @@ If you run a call against this API it requires JSON data to be sent (where appli
 All calls to `admin` can only be do by the admin user, using the corresponding token to authenticate.  
 
 ## License
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](license)file for details
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](license)
