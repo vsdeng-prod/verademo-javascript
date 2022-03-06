@@ -5,8 +5,13 @@
 ## What is this about  
 Verademo API is very simple API for the Verademo Java Application that can be found here: https://gitlab.com/verademo-app/verademo-web. It allows you to use almost the same functionality as the web application, only as an API.   
 It's used as a demo application to run static code analysis, software composition analysis and dynamic API scanning. There will be findings for all differnt type of scanning technologies.  
+Static Findings  
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/static_findings.png" width="800" />  
+  
+Dynamic Findings  
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/dynamic_findings.png" width="800" />  
+  
+SCA Findings  
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/sca_findings.png" width="800" />  
   
 ## How to build and run  
@@ -38,6 +43,21 @@ const db = createPool({
 });
 module.exports = db;
 ```  
+  
+If you want to run on a docker your Dockerfile could be similar to this  
+````
+FROM node:16
+
+WORKDIR /user/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 8000
+CMD ["node", "index.js"]
+``` 
+  
+A full documentation how to run with a full data base and the corresponding web app in a dockerized environement can be found here: https://gitlab.com/verademo-app/verademo-docker  
+  
   
 ## Functionality  
 It's using token based authentication. You are required to send an authentication header with every request to this API.  
