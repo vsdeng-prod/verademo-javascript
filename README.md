@@ -45,7 +45,7 @@ module.exports = db;
 ```  
   
 If you want to run on a docker your Dockerfile could be similar to this  
-````
+```
 FROM node:16
 
 WORKDIR /user/src/app
