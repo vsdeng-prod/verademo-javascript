@@ -5,9 +5,9 @@
 ## What is this about  
 Verademo API is very simple API for the Verademo Java Application that can be found here: https://gitlab.com/verademo-app/verademo-web. It allows you to use almost the same functionality as the web application, only as an API.   
 It's used as a demo application to run static code analysis, software composition analysis and dynamic API scanning. There will be findings for all differnt type of scanning technologies.  
-<img src="https://gitlab.com/verademo-app/verademo-api/pictures/static_findings.png" width="400" />  
-<img src="https://gitlab.com/verademo-app/verademo-api/pictures/dynamic_findings.png" width="400" />  
-<img src="https://gitlab.com/verademo-app/verademo-api/pictures/sca_findings.png" width="400" />  
+<img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/static_findings.png" width="800" />  
+<img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/dynamic_findings.png" width="800" />  
+<img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/sca_findings.png" width="800" />  
   
 ## How to build and run  
 Simply clone this repo and run   
@@ -42,12 +42,12 @@ module.exports = db;
 ## Functionality  
 It's using token based authentication. You are required to send an authentication header with every request to this API.  
 ``Authentication: Token: YOUR-TOKEN``  
-![Authentication](/pictures/authentication.png)  
+<img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/authentication.png" width="800" />  
 The token is the md5 hashedpassword of the user. If your are using the default database this is already stored on the `blab` database and the `users` table. Please refer to the full dockerized setup here https://gitlab.com/verademo-app/verademo-docker.  
 The API provides a few calls that also can reviewed on the automatically generated swagger overview under `http://IP:8000/public/`. It also brings a full swagger file in `/public/swagger.json` that can be used for dynamic API scanning.  
-![Swaggewr](/pictures/swagger_overview.png)
+!<img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/swagger_overview.png" width="800" />
 If you run a call against this API it requires JSON data to be sent (where applicalble) and it will also return JSON data.  
-![Insomnia](/pictures/insomnia_request.png)
+<img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/insomnia_request.png" width="800" />
   
 All calls to `admin` can only be do by the admin user, using the corresponding token to authenticate.  
 
