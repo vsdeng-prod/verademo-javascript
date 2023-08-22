@@ -14,7 +14,7 @@ Dynamic Findings
 SCA Findings  
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/sca_findings.png" width="800" />  
   
-## How to build and run   
+## How to build and run   awfwaf
 Simply clone this repo and run    
 ``npm install``    
 This will install required node modules for this application.  
