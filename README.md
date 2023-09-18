@@ -10,7 +10,7 @@ Static Findings
    
 Dynamic Findings  
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/dynamic_findings.png" width="800" />  
-  
+   
 SCA Findings  
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/sca_findings.png" width="800" />  
   
