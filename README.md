@@ -1,22 +1,22 @@
 <img src="https://help.veracode.com/internal/api/webapp/header/logo" width="200" /><br>  
-  
-# Verademo API  
-  
+    
+# Verademo API   
+    
 ## What is this about  
 Verademo API is very simple API for the Verademo Java Application that can be found here: https://gitlab.com/verademo-app/verademo-web. It allows you to use almost the same functionality as the web application, only as an API.   
-It's used as a demo application to run static code analysis, software composition analysis and dynamic API scanning. There will be findings for all differnt type of scanning technologies.  
-Static Findings  
+It's used as a demo application to run  static code analysis, software composition analysis and dynamic API scanning. There will be findings for all differnt type of scanning technologies.  
+Static Findings   
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/static_findings.png" width="800" />  
-  
+    
 Dynamic Findings  
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/dynamic_findings.png" width="800" />  
-  
+   
 SCA Findings  
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/sca_findings.png" width="800" />  
   
-## How to build and run  
-Simply clone this repo and run   
-``npm install``   
+## How to build and run   awfwaf
+Simply clone this repo and run    
+``npm install``    
 This will install required node modules for this application.  
 ``node index.js``  
 This will run an express server on port 8000.  
