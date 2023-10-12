@@ -7,7 +7,7 @@ Verademo API is very simple API for the Verademo Java Application that can be fo
 It's used as a demo application to run  static code analysis, software composition analysis and dynamic API scanning. There will be findings for all differnt type of scanning technologies.  
 Static Findings   
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/static_findings.png" width="800" />  
-   
+    
 Dynamic Findings  
 <img src="https://gitlab.com/verademo-app/verademo-api/-/raw/main/pictures/dynamic_findings.png" width="800" />  
    
